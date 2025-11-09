@@ -4,6 +4,7 @@ const container = document.getElementById('container')
 const startbtn = document.getElementById('startbtn')
 
 startbtn.addEventListener('click', () => {
+    
     container.style.display = 'none'
     card.style.display = 'block'
     startgame()
@@ -126,4 +127,14 @@ function win(){
   container.append(message);
 }
 
+
+function lose(){
+    container.style.display='flex'
+    const h11 = document.createElement("h1")
+    h11.className = 'box_message-lose'
+    h11.innerText = `You lose`
+    container.append(h11)
+    card.style.display='none'
+    
+}
 
