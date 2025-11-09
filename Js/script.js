@@ -64,11 +64,11 @@ function check(){
     for (let i = 0; i < inputs.length; i++) {
       values.push(inputs[i].value); 
     }
-    
+    var numGrenn = 0;
     for (let i = 0; i < values.length; i++) {
         if (values[i] == word[i].toLowerCase()) {
             inputs[i].className = 'green';
-            
+            numGrenn++;
         } 
         else if (word.toLowerCase().includes(values[i])) {
             inputs[i].className = 'orange';
@@ -77,9 +77,12 @@ function check(){
             inputs[i].className = 'red';
         }
     }
-    console.log(values)
-
-    next()
+    if (numGrenn==word.length){
+      win();
+    }
+    else{
+      next()
+    }
 
 }
 
@@ -90,7 +93,9 @@ function next() {
     inpuuts.map(inp => inp.disabled = true)
 
   stagerow++
-
+  if(stagerow==6){
+    lose();
+  }
   const rownext = document.getElementById('row'+stagerow);
   if (rownext) {
     rownext.classList.remove('rowdisabled')
@@ -107,5 +112,10 @@ function next() {
   }
 }
 
+// function win(){
+  
+// }
+// function lose(){
 
+// }
 
