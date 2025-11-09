@@ -41,3 +41,23 @@ function rowWords(word){
   }
   rows.append(wor);
 }
+
+function check(){
+    var inputs = rows.getElementsByTagName('input'); 
+    var values = [];
+    for (let i = 0; i < inputs.length; i++) {
+      values.push(inputs[i].value); 
+    }
+    for (let i = 0; i < values.length; i++) {
+        if (values[i] == word[i].toLowerCase()) {
+            inputs[i].className = 'green';
+        } 
+        else if (word.toLowerCase().includes(values[i])) {
+            inputs[i].className = 'orange';
+        } 
+        else {
+            inputs[i].className = 'red';
+        }
+    }
+    console.log(values)
+}
