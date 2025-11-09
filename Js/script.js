@@ -93,7 +93,7 @@ function next() {
     inpuuts.map(inp => inp.disabled = true)
 
   stagerow++
-  if(stagerow==6){
+  if(stagerow==5){
     lose();
   }
   const rownext = document.getElementById('row'+stagerow);
@@ -112,10 +112,14 @@ function next() {
   }
 }
 
-// function win(){
-  
-// }
-// function lose(){
 
-// }
+function lose(){
+    container.style.display='flex'
+    const h11 = document.createElement("h1")
+    h11.className = 'box_message-lose'
+    h11.innerText = `You lose hhhhh`
+    container.append(h11)
+    card.style.display='none'
+    
+}
 
