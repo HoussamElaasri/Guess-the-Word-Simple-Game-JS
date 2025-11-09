@@ -38,7 +38,12 @@ button:active {
     box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
 }
 
-
+.container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 
 .card {
@@ -100,4 +105,3 @@ input:disabled {
     color: #ffffff;
     border-color: #FF4B4B;
 }
-
