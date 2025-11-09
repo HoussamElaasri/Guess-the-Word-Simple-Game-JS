@@ -15,6 +15,7 @@ var lenword = 0
 var stagerow = 0
 
 function startgame() {
+    resetgame()
     fetch('https://random-word-api.herokuapp.com/word')
         .then(res => res.json())
         .then(w => {
@@ -95,7 +96,8 @@ function next() {
 
   stagerow++
   if(stagerow==5){
-    lose();
+    lose()
+    return
   }
   const rownext = document.getElementById('row'+stagerow);
   if (rownext) {
@@ -138,3 +140,10 @@ function lose(){
     
 }
 
+function resetgame() {
+  rows.innerHTML = ''
+  container.querySelectorAll('.box_message-win, .box_message-lose').forEach(msg => msg.remove())
+  word = ''
+  lenword = 0
+  stagerow = 0
+}
