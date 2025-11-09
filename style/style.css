@@ -105,3 +105,10 @@ input:disabled {
     color: #ffffff;
     border-color: #FF4B4B;
 }
+.box_message-win{
+    color: #eeeeee;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #a9fdc6;
+}

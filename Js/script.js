@@ -93,7 +93,7 @@ function next() {
     inpuuts.map(inp => inp.disabled = true)
 
   stagerow++
-  if(stagerow==6){
+  if(stagerow==5){
     lose();
   }
   const rownext = document.getElementById('row'+stagerow);
@@ -112,10 +112,18 @@ function next() {
   }
 }
 
-// function win(){
-  
-// }
-// function lose(){
+function win(){
+  var messagewin = ['Victory! Your brain deserves a medal',
+    'You did it! You guessed the word like a pro',
+    "Awesome job! You cracked the code",
+    "Perfect! You nailed it"
+  ];
+  container.style.display = 'block';
+  card.style.display = 'none';
+  var message =  document.createElement('p');
+  message.innerText=messagewin[Math.floor(Math.random() * messagewin.length)];
+  message.className='box_message-win';
+  container.append(message);
+}
 
-// }
 
