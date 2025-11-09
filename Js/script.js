@@ -11,6 +11,7 @@ startbtn.addEventListener('click', () => {
 
 var word = ""
 var lenword = 0
+var stagerow = 0
 
 function startgame() {
     fetch('https://random-word-api.herokuapp.com/word')
@@ -31,6 +32,7 @@ function rowWords(word) {
     for (let j = 0; j < 5; j++) {
         var wor = document.createElement('div')
         wor.className = 'row'
+        wor.id = 'row'+j
         if (j != 0) {
             wor.classList.add('rowdisabled')
         }
@@ -56,14 +58,17 @@ function rowWords(word) {
 
 
 function check(){
-    var inputs = rows.getElementsByTagName('input'); 
+    var rownow = document.getElementById('row'+stagerow)
+    var inputs = rownow.getElementsByTagName('input'); 
     var values = [];
     for (let i = 0; i < inputs.length; i++) {
       values.push(inputs[i].value); 
     }
+    
     for (let i = 0; i < values.length; i++) {
         if (values[i] == word[i].toLowerCase()) {
             inputs[i].className = 'green';
+            
         } 
         else if (word.toLowerCase().includes(values[i])) {
             inputs[i].className = 'orange';
@@ -73,6 +78,33 @@ function check(){
         }
     }
     console.log(values)
+
+    next()
+
+}
+
+function next() {
+  const rownow = document.getElementById('row'+stagerow)
+    rownow.classList.add('rowdisabled');
+    const inpuuts = Array.from(rownow.querySelectorAll('input'))
+    inpuuts.map(inp => inp.disabled = true)
+
+  stagerow++
+
+  const rownext = document.getElementById('row'+stagerow);
+  if (rownext) {
+    rownext.classList.remove('rowdisabled')
+    const inputs = Array.from(rownext.querySelectorAll('input'))
+
+    inputs.map((inp, idx) => {
+      if (idx === 0) {
+        inp.disabled = true
+      } else {
+        inp.disabled = false
+      }
+    });
+
+  }
 }
 
 
