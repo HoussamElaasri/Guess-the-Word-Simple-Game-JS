@@ -20,7 +20,24 @@ function startgame(){
         lenword = w[0].length
         console.log(word)
       console.log(lenword)
+      rowWords(word)
       })
-      .catch(err=>console.log(err))
+      .catch(err=>console.log(err)) 
       
+}
+var rows = document.getElementById('rows')
+function rowWords(word){
+  var wor = document.createElement('div')
+  wor.className = 'row'
+  for(let i = 0 ; i<lenword ; i++){
+    var iinput = document.createElement('input')
+    iinput.type = 'text' ;
+    iinput.maxLength=1;
+    if(i==0){
+      iinput.value=word[0];
+      iinput.disabled = true;
+    }
+    wor.append(iinput);
+  }
+  rows.append(wor);
 }
