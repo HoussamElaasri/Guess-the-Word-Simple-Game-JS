@@ -1,12 +1,31 @@
 const card = document.getElementById('card')
 card.style.display = 'none'
 const container = document.getElementById('container')
-const startbtn = document.getElementById('startbtn')
+const startbtneasy = document.getElementById('startbtn-easy')
+const startbtmed = document.getElementById('startbtn-med')
+const startbtnhard = document.getElementById('startbtn-hard')
 
-startbtn.addEventListener('click', () => {
+var stages = 0
+
+startbtneasy.addEventListener('click', () => {
     
     container.style.display = 'none'
     card.style.display = 'block'
+    stages = 8
+    startgame()
+})
+startbtmed.addEventListener('click', () => {
+    
+    container.style.display = 'none'
+    card.style.display = 'block'
+    stages = 6
+    startgame()
+})
+startbtnhard.addEventListener('click', () => {
+    
+    container.style.display = 'none'
+    card.style.display = 'block'
+    stages = 4
     startgame()
 })
 
@@ -31,7 +50,7 @@ function startgame() {
 var rows = document.getElementById('rows')
 function rowWords(word) {
 
-    for (let j = 0; j < 5; j++) {
+    for (let j = 0; j < stages; j++) {
         var wor = document.createElement('div')
         wor.className = 'row'
         wor.id = 'row'+j
@@ -99,7 +118,7 @@ function next() {
     inpuuts.map(inp => inp.disabled = true)
 
   stagerow++
-  if(stagerow==5){
+  if(stagerow==stages){
     lose()
     return
   }
@@ -125,12 +144,13 @@ function win(){
     "Awesome job! You cracked the code",
     "Perfect! You nailed it"
   ];
-  container.style.display = 'block';
+  container.style.display = 'flex';
   card.style.display = 'none';
   var message =  document.createElement('p');
   message.innerText=messagewin[Math.floor(Math.random() * messagewin.length)];
   message.className='box_message-win';
   container.append(message);
+
 }
 
 
@@ -164,7 +184,7 @@ function inputError() {
   confirme.className = 'confirm';
   card.append(confirme,pconfirme)
   confirme.addEventListener('click',()=>{
-    check.style.display="block";
+    check.style.display="inline";
     confirme.remove();
     pconfirme.remove();
   })

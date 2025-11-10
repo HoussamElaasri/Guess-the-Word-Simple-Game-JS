@@ -117,7 +117,7 @@ input:disabled {
     border-color: #FF4B4B;
 }
 .box_message-win{
-    color: #eeeeee;
+    color: #000000;
     padding: 20px;
     text-align: center;
     border-radius: 15px;
@@ -147,4 +147,13 @@ input:disabled {
 .confirm {
     margin-bottom: 10px;    
     align-self: center;
+}
+.easybtn{
+background: linear-gradient(135deg, #74FF00, #0087FF);
+}
+.medbtn{
+background: linear-gradient(135deg, #FFDF32, #D15800);
+}
+.hardbtn{
+background: linear-gradient(135deg, #FF3232, #FF6C00);
 }
