@@ -66,6 +66,10 @@ function check(){
     for (let i = 0; i < inputs.length; i++) {
       values.push(inputs[i].value); 
     }
+    if (values.some(v => v === "" || /\d/.test(v))) {
+      inputError();
+      return;
+    }
     var numGrenn = 0;
     for (let i = 0; i < values.length; i++) {
         if (values[i] == word[i].toLowerCase()) {
@@ -146,4 +150,22 @@ function resetgame() {
   word = ''
   lenword = 0
   stagerow = 0
+}
+
+function inputError() {
+  var check = document.getElementById("check");
+  check.style.display="none";
+  var confirme = document.createElement('button');
+  var pconfirme = document.createElement('p');
+  pconfirme.innerText='error please enter only letter no numbers or empty inputs';
+  pconfirme.style.color='red';
+  pconfirme.className = 'input_error';
+  confirme.innerText='confirme';
+  confirme.className = 'confirm';
+  card.append(confirme,pconfirme)
+  confirme.addEventListener('click',()=>{
+    check.style.display="block";
+    confirme.remove();
+    pconfirme.remove();
+  })
 }

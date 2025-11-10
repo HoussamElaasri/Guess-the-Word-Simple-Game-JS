@@ -42,11 +42,11 @@ button:active {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     display: flex;
-  flex-direction: column;
-  gap: 10px;
-
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 
@@ -56,8 +56,15 @@ button:active {
     border-radius: 14px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 300px;
 }
-
+.card .btn {
+    align-self: center;     
+}
 .rows {
     display: flex;
     flex-direction: column;
@@ -124,3 +131,20 @@ input:disabled {
     background-color: #fda9a9;
 }
 
+.input_error {
+    background: #ffe5e5;
+    color: #b30000;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border: 1px solid #ff9999;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(255, 0, 0, 0.1);
+    align-self: center;
+}
+.confirm {
+    margin-bottom: 10px;    
+    align-self: center;
+}
